@@ -64,7 +64,16 @@ We use the following settings of these services:
 
 **Mongo**
 
+* Host: `127.0.0.1`
+* Port: `27017`
+* Username: `admin`
+* Password: `''` (empty string)
 * DB Name `phalcon_test`
+
+**Redis**
+
+* Host: `127.0.0.1`
+* Port: `6379`
 
 You can change the connection settings of these services **before** running tests by using [environment variables][8]:
 
@@ -83,10 +92,18 @@ export TEST_DB_MYSQL_PORT="3306"
 export TEST_DB_MYSQL_USER="root"
 export TEST_DB_MYSQL_PASSWD=""
 export TEST_DB_MYSQL_NAME="phalcon_test"
-export TEST_DB_MYSQL_CHARSET="urf8"
+export TEST_DB_MYSQL_CHARSET="utf8"
 
 # Mongo
+export TEST_DB_MONGO_HOST="127.0.0.1"
+export TEST_DB_MONGO_PORT="27017"
+export TEST_DB_MONGO_USER="admin"
+export TEST_DB_MONGO_PASSWD=""
 export TEST_DB_MONGO_NAME="phalcon_test"
+
+# Redis
+export TEST_RS_HOST="127.0.0.1"
+export TEST_RS_PORT="6379"
 ```
 
 Once the database is created, run the tests on a terminal:
@@ -145,9 +162,6 @@ You must not create protected or private methods.
 - [ ] Tests for `Alc::deny('user', '*', '*')` - should deny all resources
 
 ## Help
-
-**Note:** Your system will **only** support the locales installed on your OS, in the **exact** format given by your OS.
-For Gettext tests you must have all locales installed that you use in tests. See `locale -a`
 
 **Note:** Cache unit-tests are slower than others tests because they use wait states (sleep command) to expire generated caches.
 

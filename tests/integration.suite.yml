@@ -3,9 +3,11 @@
 # Suite for unit (internal) tests.
 class_name: IntegrationTester
 modules:
+    # enabled modules and helpers
     enabled:
         - Helper\Integration
-        - Phalcon2
+        - Asserts
+        - Phalcon
     config:
-        Phalcon2:
+        Phalcon:
             bootstrap: 'tests/_config/bootstrap.php'

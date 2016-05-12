@@ -8,12 +8,12 @@
         "high load"
     ],
     "require": {
-        "php": "~5.4"
+        "php": ">=5.4"
     },
     "require-dev": {
         "mustache/mustache": "~2.10",
         "twig/twig": "~1.24",
-        "codeception/codeception": "~2.1",
+        "codeception/codeception": "~2.2",
         "codeception/verify": "~0.3",
         "codeception/specify": "~0.4"
     },
@@ -32,9 +32,15 @@
     "autoload-dev": {
         "psr-4": {
             "Phalcon\\Test\\Unit\\": "tests/unit/",
+            "Phalcon\\Test\\Integration\\": "tests/integration/",
             "Phalcon\\Test\\Proxy\\": "tests/_proxies/",
             "Phalcon\\Test\\Module\\": "tests/_support/Module/"
         }
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "php vendor/bin/codecept build"
+        ]
     },
     "support": {
         "issues": "https://github.com/phalcon/cphalcon/issues",
